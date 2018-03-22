@@ -1,6 +1,6 @@
 .post-container {
   display: block;
-  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .post-date-wrapper {
@@ -62,18 +62,18 @@
 }
 
 .post-content-wrapper div h1 {
-  margin: 10px 20px 10px 0px;
+  margin: 0px 20px 0px 0px;
   font-weight: 500px;
 }
 
 .post-content-wrapper div p {
-  margin: 10px 0px;
+  margin: 1px 0px 1px 0px;
 }
 
 .button-wrapper-container {
   width: 25px;
-  margin-left: -30px;
-  margin-top: 5px;
+  margin-left: -27px;
+  margin-top: 2px;
   display: inline-block;
   vertical-align: top;
 }
@@ -110,7 +110,7 @@
 }
 
 .comment-text-box-container {
-  margin-top: 5px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: flex-end;
 }
