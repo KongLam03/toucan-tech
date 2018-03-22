@@ -90,39 +90,12 @@ class Post extends React.Component {
                     }
                   >
                     {comment}
-                    <div
-                      style={{
-                        margin: 0,
-                        padding: 0,
-                        position: "relative",
-                        backgroundColor: "green"
-                      }}
-                    >
+                    <div className="comment-exit-button-container">
                       <button
-                        style={{
-                          margin: 0,
-                          padding: 0,
-                          position: "absolute",
-                          top: -6,
-                          left: 3,
-                          border: "1px thin red",
-                          borderRadius: 20 / 2,
-                          backgroundColor: "transparent"
-                        }}
+                        className="comment-exit-button"
                         onClick={() => this.props.removeKey(key)}
                       >
-                        <p
-                          style={{
-                            margin: -3,
-                            marginRight: 0,
-                            marginLeft: 0,
-                            padding: -2,
-                            marginBottom: 0,
-                            fontSize: 10
-                          }}
-                        >
-                          x
-                        </p>
+                        <p>x</p>
                       </button>
                     </div>
                   </p>

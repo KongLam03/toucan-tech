@@ -130,3 +130,26 @@
 .comment-text-box-container.paragraph.green {
   background-color: rgb(253, 179, 167);
 }
+
+.comment-exit-button-container {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.comment-exit-button {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -6px;
+  left: 3px;
+  border: 1px thin red;
+  border-radius: 5px/5px;
+  background-color: transparent;
+}
+
+.comment-exit-button p {
+  margin: -3px 0px -0px 0px;
+  padding: -2px;
+  font-size: 10px;
+}
