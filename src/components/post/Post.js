@@ -79,7 +79,6 @@ class Post extends React.Component {
         <div>
           {comment &&
             comment.map((comment, key) => {
-              console.log(`key: `, key);
               return (
                 <div className="comment-text-box-container" key={key}>
                   <p
@@ -90,14 +89,14 @@ class Post extends React.Component {
                     }
                   >
                     {comment}
-                    <div className="comment-exit-button-container">
+                    <span className="comment-exit-button-container">
                       <button
                         className="comment-exit-button"
                         onClick={() => this.props.removeKey(key)}
                       >
                         <p>x</p>
                       </button>
-                    </div>
+                    </span>
                   </p>
                 </div>
               );

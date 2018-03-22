@@ -13,10 +13,6 @@ const initialState = {
 };
 
 export default function postsDatabaseReducer(state = initialState, action) {
-  // console.log(`state: `, { ...state, posts: [...state.posts] });
-  console.log(`action: `, action);
-  console.log(`state: `, state);
-
   switch (action.type) {
     case FETCH_DB_POST_REQUEST:
       return {

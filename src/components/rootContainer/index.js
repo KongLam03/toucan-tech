@@ -6,9 +6,8 @@ import { addCommentPostDB } from "./state/actions/saveCommentAction";
 import PostsContainer from "./PostsContainer";
 
 function mapStateToProps(state) {
-  const { posts } = state;
   return {
-    posts: posts
+    posts: { posts: state.posts.posts.reverse() }
   };
 }
 
