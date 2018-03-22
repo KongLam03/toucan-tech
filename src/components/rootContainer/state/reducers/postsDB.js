@@ -2,7 +2,8 @@ import {
   FETCH_DB_POST_REQUEST,
   FETCH_DB_POST_SUCCESS,
   REMOVE_DB_POST_SUCCESS,
-  ADD_COMMENT_POST_SUCCESS
+  ADD_COMMENT_POST_SUCCESS,
+  REMOVE_COMMENT_POST_SUCCESS
 } from "../constants/constants";
 
 const initialState = {
@@ -12,6 +13,10 @@ const initialState = {
 };
 
 export default function postsDatabaseReducer(state = initialState, action) {
+  // console.log(`state: `, { ...state, posts: [...state.posts] });
+  console.log(`action: `, action);
+  console.log(`state: `, state);
+
   switch (action.type) {
     case FETCH_DB_POST_REQUEST:
       return {
@@ -34,6 +39,10 @@ export default function postsDatabaseReducer(state = initialState, action) {
       return {
         ...state,
         posts: action.posts
+      };
+    case REMOVE_COMMENT_POST_SUCCESS:
+      return {
+        ...state
       };
     default:
       return state;

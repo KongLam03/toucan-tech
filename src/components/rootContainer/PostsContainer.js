@@ -39,6 +39,10 @@ export default class PostsContainer extends React.Component {
     this.props.addCommentPostDB(posts, value, id);
   };
 
+  removeCommentFromDb = (key, postId) => {
+    this.props.removePostComment(this.props.posts, key, postId);
+  };
+
   render() {
     const { posts: { posts } } = this.props;
     const { newPostVisibility } = this.state;
@@ -71,18 +75,22 @@ export default class PostsContainer extends React.Component {
         </header>
         {posts &&
           posts.map((post, key) => {
+            const { id } = post;
+            const { headline, text, comments } = post.post;
+            const { day, month } = post.post.date;
             return (
               <Post
                 key={key}
                 index={key}
-                day={post.post.date.day}
-                month={post.post.date.month}
-                headline={post.post.headline}
-                text={post.post.text}
-                removePost={() => this.handleRemovePost(post.id)}
-                id={post.id}
+                day={day}
+                month={month}
+                headline={headline}
+                text={text}
+                removePost={() => this.handleRemovePost(id)}
+                id={id}
                 commentSave={this.handleCommentSaveToDatabase}
-                comment={post.post.comments}
+                comment={comments}
+                removeKey={key => this.removeCommentFromDb(key, id)}
               />
             );
           })}

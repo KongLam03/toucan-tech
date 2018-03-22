@@ -16,7 +16,8 @@ class NewPost extends React.Component {
     });
   }
 
-  saveNewPost = () => {
+  saveNewPost = e => {
+    e.preventDefault();
     const { headline, text } = this.state;
     if (headline === "" || text === "") {
       alert("Error: Input fields can't be blank!");
@@ -51,7 +52,7 @@ class NewPost extends React.Component {
 
   render() {
     return (
-      <div className="newpost-container">
+      <form className="newpost-container" onSubmit={this.saveNewPost}>
         <header className="newpost-header">
           <h2>New Post</h2>
         </header>
@@ -75,13 +76,13 @@ class NewPost extends React.Component {
         </div>
         <div className="button-wrapper">
           <div className="button-sub-wrapper">
-            <button onClick={this.saveNewPost}>Save</button>
+            <button onClick={e => this.saveNewPost(e)}>Save</button>
           </div>
           <div className="button-sub-wrapper">
             <button onClick={this.cancelNewPost}>Cancel</button>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }

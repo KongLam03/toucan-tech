@@ -43,7 +43,6 @@
 
 .post-date p span:nth-child(2) {
   font-size: 15px;
-  font-weight: 100;
 }
 
 .post-content-wrapper {
@@ -103,11 +102,11 @@
 }
 
 .newComment-absolute-container {
-  position: absolute;
+  position: fixed;
   left: 40%;
   right: 60%;
-  bottom: 80%;
-  top: 20%;
+  bottom: 75%;
+  top: 25%;
 }
 
 .comment-text-box-container {

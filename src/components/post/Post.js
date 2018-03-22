@@ -15,6 +15,12 @@ class Post extends React.Component {
   handleRemovePost = () => {
     this.props.removePost();
   };
+  //
+  componentWillReceiveProps(props) {
+    this.setState({
+      newCommentVisiblity: false
+    });
+  }
 
   render() {
     const {
@@ -71,23 +77,58 @@ class Post extends React.Component {
           </div>
         </div>
         <div>
-          {comment !== undefined
-            ? comment.map((comment, key) => {
-                return (
-                  <div className="comment-text-box-container" key={key}>
-                    <p
-                      className={
-                        index % 2 === 0
-                          ? "comment-text-box-container paragraph red"
-                          : "comment-text-box-container paragraph green"
-                      }
+          {comment &&
+            comment.map((comment, key) => {
+              console.log(`key: `, key);
+              return (
+                <div className="comment-text-box-container" key={key}>
+                  <p
+                    className={
+                      index % 2 === 0
+                        ? "comment-text-box-container paragraph red"
+                        : "comment-text-box-container paragraph green"
+                    }
+                  >
+                    {comment}
+                    <div
+                      style={{
+                        margin: 0,
+                        padding: 0,
+                        position: "relative",
+                        backgroundColor: "green"
+                      }}
                     >
-                      {comment}
-                    </p>
-                  </div>
-                );
-              })
-            : null}
+                      <button
+                        style={{
+                          margin: 0,
+                          padding: 0,
+                          position: "absolute",
+                          top: -6,
+                          left: 3,
+                          border: "1px thin red",
+                          borderRadius: 20 / 2,
+                          backgroundColor: "transparent"
+                        }}
+                        onClick={() => this.props.removeKey(key)}
+                      >
+                        <p
+                          style={{
+                            margin: -3,
+                            marginRight: 0,
+                            marginLeft: 0,
+                            padding: -2,
+                            marginBottom: 0,
+                            fontSize: 10
+                          }}
+                        >
+                          x
+                        </p>
+                      </button>
+                    </div>
+                  </p>
+                </div>
+              );
+            })}
         </div>
         <div className="newComment-absolute-container">
           {newCommentVisiblity === true ? (

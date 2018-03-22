@@ -9,20 +9,22 @@ class NewComment extends React.Component {
     };
   }
 
-  onSaveComment = () => {
+  onSaveComment = event => {
+    event.preventDefault();
     if (this.state.comment === "") {
       alert("Error: Input field can't be blank!");
     }
     this.props.onSaveComment(this.state.comment, this.props.id);
   };
 
-  exitCommentBoxDialog = () => {
+  exitCommentBoxDialog = event => {
+    event.preventDefault();
     this.props.exitCommentBox();
   };
 
   render() {
     return (
-      <div className="newcomment-container">
+      <form className="newcomment-container" onSubmit={this.onSaveComment}>
         <header className="newcomment-header">
           <h2>New Comment</h2>
         </header>
@@ -35,13 +37,13 @@ class NewComment extends React.Component {
         </div>
         <div className="button-wrapper">
           <div className="button-sub-wrapper">
-            <button onClick={this.onSaveComment}>Save</button>
+            <button onClick={e => this.onSaveComment}>Save</button>
           </div>
           <div className="button-sub-wrapper">
-            <button onClick={this.exitCommentBoxDialog}>Cancel</button>
+            <button onClick={e => this.exitCommentBoxDialog(e)}>Cancel</button>
           </div>
         </div>
-      </div>
+      </form>
     );
   }
 }
