@@ -27,7 +27,7 @@ export function removePostComment(posts, key, postId) {
           });
         }
       }
-      dispatch(removeCommentSuccess(newPost));
+      dispatch(removeCommentSuccess());
     });
   };
 }
@@ -38,9 +38,8 @@ function removeCommentRequest() {
   };
 }
 
-function removeCommentSuccess(rmCommentData) {
+function removeCommentSuccess() {
   return {
-    type: REMOVE_COMMENT_POST_SUCCESS,
-    rmCommentData
+    type: REMOVE_COMMENT_POST_SUCCESS
   };
 }
